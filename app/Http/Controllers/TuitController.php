@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Tuit;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TuitController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() :View
     {
-        //
+        return view('tuits.index');
     }
 
     /**

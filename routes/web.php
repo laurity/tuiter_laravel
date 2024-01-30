@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TuitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::resource('tuits', TuitController::class)
+    ->only(['index', 'store'])
+    ->Middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
