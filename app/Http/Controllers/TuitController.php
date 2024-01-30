@@ -35,7 +35,7 @@ class TuitController extends Controller
 
         $request->user()->tuits()->create($validated);
 
-        return redirect();
+        return redirect()->route('tuits.index');
     }
 
     /**
